@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import List
 
 class UserBase(BaseModel):
     username: str
@@ -15,3 +16,11 @@ class User(BaseModel):
     id:int
     username: str
 
+class Comment(BaseModel):
+    id: int
+    content: str
+
+class Post(BaseModel):
+    id: int
+    content: str
+    comments: List[Comment] = []
